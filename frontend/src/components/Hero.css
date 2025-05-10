@@ -1,0 +1,32 @@
+/* src/components/Hero.css */
+.home {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  background-color: #1a1a1a; /* Dark background for the hero section */
+  color: white;
+}
+
+.home .hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  padding: 20px;
+}
+
+.home h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.home h1 .text-customColor {
+  color: #ff0055; /* Pink color for Kamlesh */
+}
+
+.home h4 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  font-weight: 500;
+}

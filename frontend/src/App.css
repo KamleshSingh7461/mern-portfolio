@@ -1,0 +1,24 @@
+/* src/App.css or Home.css */
+
+/* Reset the body and html to have no margin or padding */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure box-sizing includes padding and border in the element's total width and height */
+}
+
+header {
+  margin: 0; /* Remove any margin from the header */
+  padding: 0; /* Remove padding from the header */
+}
+
+.home {
+  margin-top: 0; /* Ensure no margin at the top of the hero section */
+  padding-top: 0; /* Remove any padding at the top */
+}
+
+/* If any unwanted margins exist in the header, they should be removed */
+header * {
+  margin: 0;
+  padding: 0;
+}

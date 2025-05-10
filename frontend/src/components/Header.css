@@ -1,0 +1,167 @@
+/* Resetting styles for a consistent design */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding-top: 80px; /* Adjust this value based on the height of your header */
+}
+
+/* Header Styles */
+.header {
+  background-color: rgba(18, 18, 18, 0.9); /* Dark header with slight transparency */
+  color: #ffffff;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for separation */
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Container for header content */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Inner section for logo and navbar */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Logo Styles */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.dot {
+  color: #00bcd4; /* Accent color for professional pop */
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar li {
+  position: relative;
+}
+
+/* Navbar Links */
+.navbar a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Navbar Links Hover Effect */
+.navbar a:hover {
+  color: #00bcd4;
+  transform: translateY(-3px);
+}
+
+/* Mobile Menu Toggle Styles */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 25px;
+  width: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-toggle .bar {
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Active State for Menu Toggle */
+.menu-toggle.open .bar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Navbar Display on Mobile */
+.navbar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #121212;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.navbar.open {
+  display: flex;
+}
+
+.menu-toggle {
+  display: flex;
+}
+
+/* Smooth transition on page load */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(18, 18, 18, 0.9); /* Transparent background on mobile */
+  }
+
+  .navbar.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}

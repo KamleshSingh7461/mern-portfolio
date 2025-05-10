@@ -1,0 +1,90 @@
+/* Global Styles for the Project Card */
+.project-card {
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  transform: scale(1);
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image Styling */
+.project-card-media {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Ensure the image doesn't distort */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1); /* Subtle line separating the image */
+}
+
+/* Card Content Styling */
+.project-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Title Styling with Gradient */
+.project-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #333;
+  background: linear-gradient(45deg, #ff512f, #dd2476);
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+/* Description Styling */
+.project-card-description {
+  font-size: 0.9rem;
+  color: #777;
+  text-align: justify;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect for Card Title */
+.project-card:hover .project-card-title {
+  background: linear-gradient(45deg, #ff512f, #ff6a00);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Hover Effect for Description */
+.project-card:hover .project-card-description {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .project-card {
+    max-width: 100%;
+    margin: 10px;
+  }
+
+  .project-card-media {
+    height: 180px; /* Slightly smaller image on mobile */
+  }
+
+  .project-card-content {
+    padding: 15px;
+  }
+
+  .project-card-title {
+    font-size: 1rem; /* Slightly smaller text on mobile */
+  }
+
+  .project-card-description {
+    font-size: 0.8rem; /* Adjust font size for readability */
+  }
+}

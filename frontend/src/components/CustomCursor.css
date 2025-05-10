@@ -1,0 +1,39 @@
+/* src/components/CustomCursor.css */
+
+.cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff007f;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease;
+  z-index: 9999;
+}
+
+.cursor.hovered {
+  background-color: #00b0ff;
+  width: 30px;
+  height: 30px;
+}
+/* Add this CSS to animate a line following the cursor */
+.geometric-line {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #ff007f;
+  animation: moveLine 2s infinite linear;
+}
+
+@keyframes moveLine {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

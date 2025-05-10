@@ -1,0 +1,194 @@
+/* Global styles for Projects page */
+.projects {
+  position: relative;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  color: white;
+  overflow: hidden;
+  min-height: 100vh; /* Ensure it covers the full screen */
+  text-align: center; /* Center text content */
+}
+
+/* Particles background */
+.projects-header {
+  margin-bottom: 40px;
+  z-index: 2;
+}
+
+.projects-title {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff512f, #dd2476);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
+
+.projects-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 50px; /* Provide spacing between subtitle and project cards */
+}
+
+/* Project list styling */
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  height: 100%;
+  text-align: left; /* Align text to the left inside each project card */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Consistent gap between the content items */
+}
+
+.project-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 15px; /* Provide space below project name */
+}
+
+.project-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px; /* Spacing after description */
+}
+
+.project-tech-stack {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.project-tech-stack ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.project-tech-stack li {
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+/* Project link styling */
+.project-link {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #ff512f;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.project-link:hover {
+  color: #dd2476;
+}
+
+/* Project image container */
+.project-image-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.project-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Make image responsive */
+.project-image:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .projects {
+    padding: 80px 20px;
+  }
+
+  .projects-title {
+    font-size: 2.5rem;
+  }
+
+  .projects-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .project-card {
+    padding: 25px;
+  }
+
+  .project-name {
+    font-size: 1.5rem; /* Smaller title font for mobile */
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+  }
+
+  .projects-list {
+    grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+    gap: 20px;
+  }
+
+  .project-image-container {
+    max-width: 90%; /* Make image container responsive */
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects-title {
+    font-size: 2rem;
+  }
+
+  .projects-subtitle {
+    font-size: 1rem;
+  }
+
+  .project-card {
+    padding: 20px;
+  }
+
+  .project-name {
+    font-size: 1.3rem; /* Further reduce font size on very small screens */
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .project-tech-stack {
+    font-size: 0.9rem;
+  }
+}
