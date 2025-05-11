@@ -2,6 +2,7 @@ import React from 'react';
 import '../pages/Home.css';
 import ParticlesComponent from '../components/ParticlesComponent'; // Background animation
 
+
 // Assuming that tech stack icons and card data are imported here
 import { FaReact, FaNode, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare } from 'react-icons/fa'; // Example icons
 import { SiMongodb, SiExpress, SiDocker, SiPostgresql, SiGithub } from 'react-icons/si'; // Example icons
@@ -20,7 +21,9 @@ const Home = () => {
           </div>
           <div className="hero-image-container">
             <div className="hero-image">
-              <img src="IMG_0283.jpg" alt="Hero" />
+              <img src="http://localhost:5000/images/IMG_0283.jpg" alt="Hero" className="project-image" />
+
+
             </div>
             {/* Social media links */}
             <div className="socials-container">
@@ -70,12 +73,15 @@ const Home = () => {
     {[
       'html-5.png', 'css3.png', 'javascript.png', 'tailwind.png',
       'react.png', 'redux.png', 'bootstrap.png', 'typescript.png',
-      'nextjs.png', 'jquery.png','vuejs.png',
-      'scss.png', 'nodejs.png', 'express.png', 'mongodb.png',
+      'nextjs.png', 'jquery.png', 'nodejs.png', 'express.png', 'mongodb.png',
       'mongoose.png', 'git.png', 'github.png'
     ].map((logo, index) => (
       <div className="tech-logo-container" key={index}>
-        <img src={`/tech/${logo}`} alt={logo.split('.')[0]} className="tech-logo" />
+        <img
+          src={`http://localhost:5000/images/${logo}`}
+          alt={logo.split('.')[0]}
+          className="tech-logo"
+        />
       </div>
     ))}
   </div>

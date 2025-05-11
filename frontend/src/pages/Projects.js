@@ -1,7 +1,6 @@
-// src/pages/Projects.js
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'; // Make sure axios is installed
-import ParticlesComponent from '../components/ParticlesComponent'; // ✅ Import the background animation
+import axios from 'axios';
+import ParticlesComponent from '../components/ParticlesComponent'; // Import for background animation
 import './Projects.css';
 
 const Projects = () => {
@@ -24,7 +23,7 @@ const Projects = () => {
 
   return (
     <div className="projects">
-      <ParticlesComponent /> {/* ✅ Add background particles */}
+      <ParticlesComponent /> {/* Background animation */}
 
       <div className="projects-header">
         <h2 className="projects-title">My Works</h2>
