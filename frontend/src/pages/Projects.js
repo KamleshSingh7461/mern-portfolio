@@ -11,7 +11,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/projects');
+        const response = await axios.get('https://kamlesh-portfolio.onrender.com/api/projects');
         setProjects(response.data); // Set projects data to state
       } catch (error) {
         console.error('Error fetching projects:', error);
