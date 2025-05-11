@@ -1,29 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ParticlesComponent from '../components/ParticlesComponent'; // Import for background animation
+import ParticlesComponent from '../components/ParticlesComponent'; // Background animation
 import './Projects.css';
 
 const Projects = () => {
-  // State to store the fetched projects
   const [projects, setProjects] = useState([]);
 
-  // Fetch projects data from the backend API
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get('https://kamlesh-portfolio.onrender.com/api/projects');
-        setProjects(response.data); // Set projects data to state
+        setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
       }
     };
 
-    fetchProjects(); // Call the function to fetch data
-  }, []); // Empty dependency array means it will run once when the component mounts
+    fetchProjects();
+  }, []);
 
   return (
     <div className="projects">
-      <ParticlesComponent /> {/* Background animation */}
+      <ParticlesComponent />
 
       <div className="projects-header">
         <h2 className="projects-title">My Works</h2>
@@ -40,18 +38,27 @@ const Projects = () => {
                 <h3 className="project-name">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
 
-                <div className="project-tech-stack">
-                  <strong>Tech Stack:</strong>
-                  <ul>
-                    {project.techStack.map((tech, techIndex) => (
-                      <li key={techIndex}>{tech}</li>
-                    ))}
-                  </ul>
-                </div>
+                {project.techStack && Array.isArray(project.techStack) && (
+                  <div className="project-tech-stack">
+                    <strong>Tech Stack:</strong>
+                    <ul>
+                      {project.techStack.map((tech, techIndex) => (
+                        <li key={techIndex}>{tech}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
-                <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="project-link">
-                  View Project
-                </a>
+                {project.githubLink && (
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    View Project
+                  </a>
+                )}
               </div>
             </div>
           ))
