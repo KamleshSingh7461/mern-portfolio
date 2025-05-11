@@ -21,7 +21,7 @@ const Home = () => {
           </div>
           <div className="hero-image-container">
             <div className="hero-image">
-              <img src="http://localhost:5000/images/IMG_0283.jpg" alt="Hero" className="project-image" />
+              <img src="https://kamlesh-portfolio.onrender.com/images/IMG_0283.jpg" alt="Hero" className="project-image" />
 
 
             </div>
@@ -78,7 +78,7 @@ const Home = () => {
     ].map((logo, index) => (
       <div className="tech-logo-container" key={index}>
         <img
-          src={`http://localhost:5000/images/${logo}`}
+          src={`https://kamlesh-portfolio.onrender.com/images/${logo}`}
           alt={logo.split('.')[0]}
           className="tech-logo"
         />
