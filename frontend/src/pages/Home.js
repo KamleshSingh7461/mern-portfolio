@@ -22,7 +22,7 @@ const Home = () => {
           </div>
           <div className="hero-image-container">
             <div className="hero-image">
-              <img src={`${BASE_URL}/images/profilepic`} alt="Hero" className="project-image" />
+              <img src={`${BASE_URL}/images/imgetransparent`} alt="Hero" className="project-image" />
             </div>
             {/* Social media links */}
             <div className="socials-container">
