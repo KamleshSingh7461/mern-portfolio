@@ -2,22 +2,27 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const contactRoutes = require('./routes/contact'); // Correct contact route import
-const projectRoutes = require('./routes/projectRoutes'); // This is the correct path
-const path = require('path');  // Import the 'path' module for serving static files
+const contactRoutes = require('./routes/contact'); 
+const projectRoutes = require('./routes/projectRoutes');
+const path = require('path');  
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
-app.use(express.json()); // Parse incoming requests with JSON payloads
+app.use(express.json());
 
-// Serve static files from 'images' folder
-app.use('/images', express.static(path.join(__dirname, 'images')));  // This will serve images from the 'backend/images' folder
+// ✅ Add test route here
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'API is working!' });
+});
+
+// Serve static files
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // Routes
 app.use('/api/contact', contactRoutes);
-app.use('/api/projects', projectRoutes);  // Ensure this points to the correct file
+app.use('/api/projects', projectRoutes);
 
 const port = process.env.PORT || 5000;
 
