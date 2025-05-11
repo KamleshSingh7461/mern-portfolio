@@ -1,71 +1,23 @@
 const express = require('express');
-const Project = require('../models/Project');
 const router = express.Router();
+const Project = require('../models/Project'); // adjust path if needed
 
-// GET /api/projects → Get all projects
+// POST - Create a new project
+router.post('/', async (req, res) => {
+  try {
+    const project = new Project(req.body);
+    await project.save();
+    res.status(201).json(project);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// GET - Get all projects
 router.get('/', async (req, res) => {
   try {
     const projects = await Project.find();
     res.json(projects);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-// POST /api/projects → Create a new project
-router.post('/', async (req, res) => {
-  const { title, description, githubLink, techStack } = req.body;
-
-  const newProject = new Project({
-    title,
-    description,
-    githubLink,
-    techStack,
-  });
-
-  try {
-    const savedProject = await newProject.save();
-    res.status(201).json(savedProject);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
-
-// GET /api/projects/:id → Get project by ID
-router.get('/:id', async (req, res) => {
-  try {
-    const project = await Project.findById(req.params.id);
-    if (!project) {
-      return res.status(404).json({ message: 'Project not found' });
-    }
-    res.json(project);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-// PUT /api/projects/:id → Update a project
-router.put('/:id', async (req, res) => {
-  try {
-    const updatedProject = await Project.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    res.json(updatedProject);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
-
-// DELETE /api/projects/:id → Delete a project
-router.delete('/:id', async (req, res) => {
-  try {
-    const project = await Project.findByIdAndDelete(req.params.id);
-    if (!project) {
-      return res.status(404).json({ message: 'Project not found' });
-    }
-    res.json({ message: 'Project deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
