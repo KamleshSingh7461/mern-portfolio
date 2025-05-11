@@ -2,12 +2,13 @@ import React from 'react';
 import '../pages/Home.css';
 import ParticlesComponent from '../components/ParticlesComponent'; // Background animation
 
-
 // Assuming that tech stack icons and card data are imported here
 import { FaReact, FaNode, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare } from 'react-icons/fa'; // Example icons
 import { SiMongodb, SiExpress, SiDocker, SiPostgresql, SiGithub } from 'react-icons/si'; // Example icons
 
 const Home = () => {
+  const BASE_URL = "https://kamlesh-portfolio.onrender.com"; // Live backend URL
+
   return (
     <div className="home">
       <ParticlesComponent /> {/* Background animation */}
@@ -21,22 +22,20 @@ const Home = () => {
           </div>
           <div className="hero-image-container">
             <div className="hero-image">
-              <img src="https://kamlesh-portfolio.onrender.com/images/IMG_0283.jpg" alt="Hero" className="project-image" />
-
-
+              <img src={`${BASE_URL}/images/IMG_0283.jpg`} alt="Hero" className="project-image" />
             </div>
             {/* Social media links */}
             <div className="socials-container">
-              <a href="https://twitter.com/yourusername" target="_blank" className="social-icon twitter" rel="noopener noreferrer">
+              <a href="https://x.com/kamlesh7461" target="_blank" className="social-icon twitter" rel="noopener noreferrer">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="https://www.linkedin.com/in/yourusername/" target="_blank" className="social-icon linkedin" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/kamleshsingh2000/" target="_blank" className="social-icon linkedin" rel="noopener noreferrer">
                 <i className="fab fa-linkedin"></i>
               </a>
-              <a href="https://www.instagram.com/yourusername/" target="_blank" className="social-icon instagram" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/kamlesh_singh__4/" target="_blank" className="social-icon instagram" rel="noopener noreferrer">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="mailto:kamlesh7461.com" className="social-icon email">
+              <a href="mailto:kamlesh7461@gmail.com" className="social-icon email">
                 <i className="fas fa-envelope"></i>
               </a>
             </div>
@@ -66,31 +65,26 @@ const Home = () => {
         </div>
       </div>
 
-     {/* Skills Section */}
-<div className="skills">
-  <h2>My Skills</h2>
-  <div className="skills-icons">
-    {[
-      'html-5.png', 'css3.png', 'javascript.png', 'tailwind.png',
-      'react.png', 'redux.png', 'bootstrap.png', 'typescript.png',
-      'nextjs.png', 'jquery.png', 'nodejs.png', 'express.png', 'mongodb.png',
-      'mongoose.png', 'git.png', 'github.png'
-    ].map((logo, index) => (
-      <div className="tech-logo-container" key={index}>
-        <img
-          src={`https://kamlesh-portfolio.onrender.com/images/${logo}`}
-          alt={logo.split('.')[0]}
-          className="tech-logo"
-        />
+      {/* Skills Section */}
+      <div className="skills">
+        <h2>My Skills</h2>
+        <div className="skills-icons">
+          {[
+            'html-5.png', 'css3.png', 'javascript.png', 'tailwind.png',
+            'react.png', 'redux.png', 'bootstrap.png', 'typescript.png',
+            'nextjs.png', 'jquery.png', 'nodejs.png', 'express.png', 'mongodb.png',
+            'mongoose.png', 'git.png', 'github.png'
+          ].map((logo, index) => (
+            <div className="tech-logo-container" key={index}>
+              <img
+                src={`${BASE_URL}/images/${logo}`}
+                alt={logo.split('.')[0]}
+                className="tech-logo"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
-
-
-
-
-
     </div>
   );
 };
