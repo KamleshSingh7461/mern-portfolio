@@ -1,3 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const Contact = require('../models/Contact');
+const nodemailer = require('nodemailer');
+require('dotenv').config();
+
+// POST route to handle form submissions
 router.post('/', async (req, res) => {
   const { name, email, subject, message } = req.body;
 
@@ -21,8 +28,8 @@ router.post('/', async (req, res) => {
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Recipient's email (your email)
+      from: process.env.EMAIL_USER, // Verified Gmail as "from" address
+      to: process.env.EMAIL_USER, // Your email where the contact form is submitted
       replyTo: email,  // This allows the recipient to reply to the user's email
       subject: `New Contact Message from ${name}`,
       text: `You have received a new message from ${name} (${email})\n\nSubject: ${subject}\n\nMessage:\n${message}`,
@@ -33,8 +40,11 @@ router.post('/', async (req, res) => {
 
     res.status(200).json({ message: 'Message sent successfully!' });
   } catch (error) {
-    console.error('Error submitting contact form:', error.message);  // Log the message
-    console.error(error.stack);  // Log the stack trace for more details
+    console.error('Error submitting contact form:', error);
     res.status(500).json({ error: 'Failed to send message' });
   }
 });
+
+module.exports = router;
+//             label="Your Email"
+//             name="email"
