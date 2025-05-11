@@ -2,7 +2,7 @@ const express = require('express');
 const Project = require('../models/Project');
 const router = express.Router();
 
-// Get all projects
+// GET /api/projects → Get all projects
 router.get('/', async (req, res) => {
   try {
     const projects = await Project.find();
@@ -12,16 +12,15 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Create a new project
-router.post('/projects', async (req, res) => {
-  const { title, description, image, githubLink, techStack } = req.body;
+// POST /api/projects → Create a new project
+router.post('/', async (req, res) => {
+  const { title, description, githubLink, techStack } = req.body;
 
   const newProject = new Project({
     title,
     description,
-    image,
     githubLink,
-    techStack
+    techStack,
   });
 
   try {
@@ -32,8 +31,8 @@ router.post('/projects', async (req, res) => {
   }
 });
 
-// Get project by ID
-router.get('/projects/:id', async (req, res) => {
+// GET /api/projects/:id → Get project by ID
+router.get('/:id', async (req, res) => {
   try {
     const project = await Project.findById(req.params.id);
     if (!project) {
@@ -45,18 +44,22 @@ router.get('/projects/:id', async (req, res) => {
   }
 });
 
-// Update a project
-router.put('/projects/:id', async (req, res) => {
+// PUT /api/projects/:id → Update a project
+router.put('/:id', async (req, res) => {
   try {
-    const updatedProject = await Project.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedProject = await Project.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
     res.json(updatedProject);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 });
 
-// Delete a project
-router.delete('/projects/:id', async (req, res) => {
+// DELETE /api/projects/:id → Delete a project
+router.delete('/:id', async (req, res) => {
   try {
     const project = await Project.findByIdAndDelete(req.params.id);
     if (!project) {
