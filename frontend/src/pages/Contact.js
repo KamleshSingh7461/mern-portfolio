@@ -22,7 +22,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/contact', {
+      const res = await axios.post('https://kamlesh-portfolio.onrender.com/api/contact', {
         name: formData.name,
         email: formData.email,
         message: `${formData.subject}\n\n${formData.message}`,
